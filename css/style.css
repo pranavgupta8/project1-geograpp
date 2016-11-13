@@ -1,0 +1,20 @@
+body {
+	font-family: 'Josefin Sans', sans-serif;
+	background-image: url('../images/bg2.jpg');
+	background-repeat: no-repeat;
+	width: auto;
+	height: 100%;
+}
+
+.query-box {
+	width: 40%;
+	margin: 0 auto;
+	padding: 2em 0em;
+	box-sizing: border-box;
+}
+
+.query-box input,.query-box select {
+	display: block;
+	width: 70%;
+	margin: 1em auto;
+}
