@@ -2,24 +2,30 @@
 <head>
 <title>Geograpp Beta</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
+<!--Loads josefin sans font stylesheet-->
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 </head>
 <body>
 	<div class="query-box">
 		<form>
-			<input type="text" name="country-query" placeholder="country name or world">
-			<select type="text" name="period-query" required>
+			<input type="text" name="country-query" placeholder="country name or world" required="required">
+			<select type="text" name="period-query" required="required">
 				<option selected="selected" disabled="disabled">Select a Time Period</option>
-				<option>5 Years</option>
-				<option>10 Years</option>
-				<option>15 Years</option>
-				<option>20 Years</option>
-				<option>50 Years</option>
+				<option value="5">Past 5 Years</option>
+				<option value="10">Past 10 Years</option>
+				<option value="15">Past 15 Years</option>
+				<option  value="20">Past 20 Years</option>
+				<option  value="50">Past 50 Years</option>
 			</select>
 			<input type="submit">
 		</form> 
 	</div>
+
+	<div id="results"></div>
+	<!--Loads the jQuery library-->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="js/app.js" type="text/javascript"></script>
+	<!--Loads Google charts library-->
+	<script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
 </body>
 </html>
