@@ -1,10 +1,10 @@
+var countryName, timePeriod;
+var info = [];
+
 $(document).ready(function(){
 
 	google.charts.load('current', {'packages':['corechart']});
-	google.charts.setOnLoadCallback(drawChart);
-
-	info = new google.visualization.DataTable();
-	info.addColumn('Year', 'Population');
+	google.charts.setOnLoadCallback(onChartLoad);
 
 	$('form').submit(function(e){
 		e.preventDefault();
@@ -13,9 +13,6 @@ $(document).ready(function(){
 		showResults();
 	});
 });
-
-var countryName, timePeriod;
-var info = [];
 
 var getRequest = function(){
 
@@ -54,6 +51,12 @@ var getRequest = function(){
 	});
 };
 
+var onChartLoad = function() {
+	info = new google.visualization.DataTable();
+	info.addColumn('number', 'Year');
+	info.addColumn('number', 'Population');
+}
+
 var drawChart = function(){
 
 	var options = {
@@ -64,7 +67,8 @@ var drawChart = function(){
 
 	var chart = new google.visualization.LineChart(document.getElementById('results'));
 
-	chart.draw(info, options);
+	chart.draw(info, null);
+	$('#results').css('display', 'block');
 };
 
 var showResults = function(){
