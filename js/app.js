@@ -25,35 +25,23 @@ var getRequest = function(){
 	for(i=timePeriod; i>=0; i--)
 	effectiveYear.push(currentYear - i);
 	var yearsDone = effectiveYear.length;
-<<<<<<< 0b97cc59efbaf9d499ffd3fabe2249307f626177
-=======
 
 	info.addRows(yearsDone);
 
->>>>>>> gooogle chart modififcations
 	$.each(effectiveYear, function(i, val){
 		url = 'http://api.population.io:80/1.0/population/' + val + '/' + countryName;
 		var sum = 0;
 		$.getJSON(url, function(data){
 			var done = data.length;
-<<<<<<< 0b97cc59efbaf9d499ffd3fabe2249307f626177
-			$.each(data, function(i, obj){
-=======
 			$.each(data, function(j, obj){
->>>>>>> gooogle chart modififcations
 				var ageTotal = obj.total;
 				if (ageTotal) {
 					sum += +ageTotal;
 				}
 				done--;
 				if (done === 0) {
-<<<<<<< 0b97cc59efbaf9d499ffd3fabe2249307f626177
-					info.push('['+ val + ',' + sum + ']');
-=======
 					info.setCell(i, 0, val);
 					info.setCell(i, 1, sum);
-					
->>>>>>> gooogle chart modififcations
 					yearsDone--;
 					if (yearsDone === 0) {
 						drawChart(); // this is now executed only when all the data
