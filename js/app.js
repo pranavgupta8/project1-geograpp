@@ -1,10 +1,10 @@
 var countryName, timePeriod;
-var info = [];
+var info;
 
 $(document).ready(function(){
 
 	google.charts.load('current', {'packages':['corechart']});
-	google.charts.setOnLoadCallback(onChartLoad);
+	google.charts.setOnLoadCallback(createChart);
 
 	$('form').submit(function(e){
 		e.preventDefault();
@@ -15,6 +15,8 @@ $(document).ready(function(){
 });
 
 var getRequest = function(){
+
+	createChart();
 
 	var currentYear = new Date().getFullYear();
 	var effectiveYear = new Array();
@@ -37,7 +39,7 @@ var getRequest = function(){
 				}
 				done--;
 				if (done === 0) {
-					info.setCell(i, 0, val);
+					info.setCell(i, 0, "" + val + " ");
 					info.setCell(i, 1, sum);
 					yearsDone--;
 					if (yearsDone === 0) {
@@ -51,7 +53,7 @@ var getRequest = function(){
 	});
 };
 
-var onChartLoad = function() {
+var createChart = function() {
 	info = new google.visualization.DataTable();
 	info.addColumn('string', 'Year');
 	info.addColumn('number', 'Population');
@@ -62,16 +64,21 @@ var drawChart = function(){
 	var options = {
 		title: countryName + ' ' + 'Population Statistics',
 		curveType: 'function',
-		legend: {position: 'bottom'}
+		legend: {position: 'bottom'},
+		width: 1000,
+		height: 400,
+		hAxis: {
+			scaleType: 'linear'
+		}
 	};
 
 	var chart = new google.visualization.LineChart(document.getElementById('results'));
 
 	chart.draw(info, options);
 	$('#results').css('display', 'block');
+	$('#results > div > div').css('margin', 'auto auto');
 };
 
 var showResults = function(){
-	$('#results').css('width', '30%').css('height', '50%');
 	getRequest();
 };

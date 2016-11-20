@@ -1,13 +1,13 @@
 body {
 	font-family: 'Josefin Sans', sans-serif;
-	background-image: url('../images/bg2.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+	background-color: gray;
 }
 
 .query-box {
-	width: 50%;
+	width: 25%;
 	margin: 0 auto;
 	padding: 2em 0em;
 	box-sizing: border-box;
@@ -16,17 +16,15 @@ body {
 	opacity: 0.84;
 }
 
-.query-box input,.query-box select {
+.query-box input, .query-box select {
 	display: block;
-	width: 70%;
+	width: 50%;
 	margin: 1em auto;
 }
 
 #results {
+	width: 75%;
 	display: none;
-	margin: 2em auto;
-}
-
-#results > div {
-	margin: 0em auto;	
+	margin: auto auto;
+	margin-top: 8em;
 }
