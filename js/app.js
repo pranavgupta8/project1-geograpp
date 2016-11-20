@@ -53,7 +53,7 @@ var getRequest = function(){
 
 var onChartLoad = function() {
 	info = new google.visualization.DataTable();
-	info.addColumn('number', 'Year');
+	info.addColumn('string', 'Year');
 	info.addColumn('number', 'Population');
 }
 
@@ -67,11 +67,11 @@ var drawChart = function(){
 
 	var chart = new google.visualization.LineChart(document.getElementById('results'));
 
-	chart.draw(info, null);
+	chart.draw(info, options);
 	$('#results').css('display', 'block');
 };
 
 var showResults = function(){
-	$('#results').css('width', '90%', 'height', '50%', 'display', 'default');
+	$('#results').css('width', '30%').css('height', '50%');
 	getRequest();
 };
