@@ -4,11 +4,12 @@
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <!--Loads josefin sans font stylesheet-->
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
 	<div class="query-box">
 		<form>
-			<input type="text" name="country-query" placeholder="country name or world" required="required">
+			<input id="country-name" type="text" name="country-query" placeholder="country name or world" required="required">
 			<select type="text" name="period-query" required="required">
 				<option selected="selected" disabled="disabled">Select a Time Period</option>
 				<option value="5">Past 5 Years</option>
@@ -23,6 +24,7 @@
 	<div id="results"></div>
 	<!--Loads the jQuery library-->
 	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 	<!--Loads Google charts library-->
 	<script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
